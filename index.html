@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrueTime Adder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>TrueTime Adder</h1>
+        <p>Calculate your precise working hours</p>
+      </header>
+
+      <main class="main-content">
+        <div class="input-section">
+          <!-- InTime Section -->
+          <div class="time-input-group">
+            <h3>📥 InTime</h3>
+            <div class="time-selector">
+              <div class="time-unit">
+                <label>Hours</label>
+                <select class="hour-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+              </div>
+              <div class="time-unit">
+                <label>Minutes</label>
+                <select class="minute-select">
+                  <!-- Minutes will be populated by JavaScript -->
+                </select>
+              </div>
+              <div class="ampm-section">
+                <label>AM/PM</label>
+                <div class="ampm-selector">
+                  <div class="ampm-option">
+                    <input
+                      type="radio"
+                      id="in-am"
+                      name="in-ampm"
+                      value="AM"
+                      checked
+                    />
+                    <label for="in-am">AM</label>
+                  </div>
+                  <div class="ampm-option">
+                    <input type="radio" id="in-pm" name="in-ampm" value="PM" />
+                    <label for="in-pm">PM</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OutTime Section -->
+          <div class="time-input-group">
+            <h3>📤 OutTime</h3>
+            <div class="time-selector">
+              <div class="time-unit">
+                <label>Hours</label>
+                <select class="hour-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+              </div>
+              <div class="time-unit">
+                <label>Minutes</label>
+                <select class="minute-select">
+                  <!-- Minutes will be populated by JavaScript -->
+                </select>
+              </div>
+              <div class="ampm-section">
+                <label>AM/PM</label>
+                <div class="ampm-selector">
+                  <div class="ampm-option">
+                    <input
+                      type="radio"
+                      id="out-am"
+                      name="out-ampm"
+                      value="AM"
+                      checked
+                    />
+                    <label for="out-am">AM</label>
+                  </div>
+                  <div class="ampm-option">
+                    <input
+                      type="radio"
+                      id="out-pm"
+                      name="out-ampm"
+                      value="PM"
+                    />
+                    <label for="out-pm">PM</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Updated Working Hours with Gender Selection -->
+          <div class="working-hours-input">
+            <h3>⏰ Total Working Hours</h3>
+            <div class="input-row">
+              <div class="hours-input-container">
+                <input
+                  type="number"
+                  id="totalHours"
+                  min="0"
+                  max="20"
+                  step="0.5"
+                  placeholder="Enter hours (0-20)"
+                  class="hours-input"
+                />
+                <span class="hours-label">hours</span>
+              </div>
+              <div class="gender-selection">
+                <div class="gender-slider-container">
+                  <div class="gender-option">
+                    <input
+                      type="radio"
+                      id="gender-male"
+                      name="gender"
+                      value="male"
+                      checked
+                    />
+                    <label for="gender-male">Male</label>
+                  </div>
+                  <div class="gender-slider">
+                    <div class="slider-thumb"></div>
+                  </div>
+                  <div class="gender-option">
+                    <input
+                      type="radio"
+                      id="gender-female"
+                      name="gender"
+                      value="female"
+                    />
+                    <label for="gender-female">Female</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <button id="calculateBtn" class="calculate-btn">
+          <span>Calculate</span>
+        </button>
+
+        <!-- Greeting Message Section -->
+        <div
+          id="greetingMessage"
+          class="greeting-message"
+          style="display: none"
+        ></div>
+
+        <!-- Updated Results Section -->
+        <div id="results" class="results-section">
+          <h3>📊 Time Frame to Add</h3>
+          <div class="result-output">
+            <div class="result-line before-line">
+              <span class="result-label">Before Timings:</span>
+              <span class="time-frame" id="beforeTime"
+                >--:-- -- - --:-- --</span
+              >
+            </div>
+            <div class="result-line after-line">
+              <span class="result-label">After Timings:</span>
+              <span class="time-frame" id="afterTime">--:-- -- - --:-- --</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
